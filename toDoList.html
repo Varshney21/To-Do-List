@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">	
+    	</script>
+    
+    <style>
+	p{
+		background: #3399ff;
+	}
+	ul{
+    		background: #3399ff;
+    		padding: 20px;
+	}
+	ul li{
+    		background: #cce5ff;
+    		margin: 5px;
+		list-style-type: circle;
+	}	
+    </style>
+    
+</head>
+
+<body>
+
+	<p>Make Your ToDo List: <input type="text" id="fname" onkeyup="myFunction()"></p>
+
+	<ul id="myList">
+	</ul>
+
+	<script>
+	var i=0;
+	function myFunction() {
+		var x = document.getElementById("fname");
+    		event.preventDefault();
+    		if (event.keyCode === 13 && (x.value)!=" ") {
+    			var node = document.createElement("li");
+        		var textnode = document.createTextNode(x.value);
+    			node.appendChild(textnode);
+    			document.getElementById("myList").appendChild(node);
+        		x.value = "";
+        		document.getElementsByTagName("li")[i].setAttribute("onclick","this.style.textDecoration='line-through'");
+        		i=i+1;
+        		//console.log(i);
+    		}
+	}
+	
+	</script>
+
+</body>
+</html>
